@@ -1,0 +1,124 @@
+[
+    {
+        "type": "input",
+        "name": "firstName",
+        "placeholder": "First Name",
+        "label": "First Name",
+        "value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "First Name is required"
+            },
+            {
+                "type": "minLength",
+                "value": 3,
+                "message": "First Name must be at least 3 characters"
+            },
+            {
+                "type": "maxLength",
+                "value": 10,
+                "message": "First Name must be less than 10 characters"
+            },
+            {
+                "type": "oneOf",
+                "value": [
+                    "John",
+                    "Jane",
+                    "Bob"
+                ],
+                "message": "First Name must be John, Jane, or Bob"
+            }
+
+            
+        ]
+    },
+    {
+        "type": "input",
+        "name": "lastName",
+        "placeholder": "Last Name",
+        "label": "Last Name",
+        "value": "",
+        "validations": []
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "placeholder": "Email",
+        "label": "Email",
+        "value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "Email is required"
+            },
+            {
+                "type": "email",
+                "message": "Email is not valid"
+            }
+        ]
+    },
+    {
+        "type": "input",
+        "name": "phone",
+        "placeholder": "Phone",
+        "label": "Phone",
+        "value": "",
+        "validations": []
+    },
+    {
+        "type": "select",
+        "name": "jobPosition",
+        "label": "Job Position",
+        "placeholder": "Select a Position",
+        "value": "",
+        "options": [
+            {
+                "label": "Select a job",
+                "value": ""
+            },
+            {
+                "label": "Engineer",
+                "value": "engineer"
+            },
+            {
+                "label": "Designer",
+                "value": "designer"
+            },
+            {
+                "label": "Product Manager",
+                "value": "productManager"
+            }
+        ],
+        "validations": []
+    },
+    {
+        "type": "password",
+        "name": "password",
+        "placeholder": "password",
+        "label": "password",
+        "value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "Password is required"
+            },
+            {
+                "type": "minLength",
+                "value": 6,
+                "message": "Password must be at least 6 characters"
+            },
+            {
+                "type": "maxLength",
+                "value": 10,
+                "message": "Password must be less than 10 characters"
+            },
+            {
+                "type": "pattern",
+                "value": "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,})",
+                "message": "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+            }
+        ]
+    }
+   
+]
