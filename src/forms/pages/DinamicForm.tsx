@@ -3,21 +3,24 @@ import { Formik, Form } from "formik";
 
 import { MyTextInput, MySelect } from '../components';
 
+// archivo json que contiene la estructura del formulario, esto podria venir de un servicio de backend
 import formJson from '../data/custom-form.json';
 
 import * as Yup from 'yup';
 
+//define los valores iniciales del formulario
 const initialValues: { [key: string]: any } = {};
+//define los campos requeridos del formulario
 const requiredFields: { [key: string]: any } = {};
 
 formJson.forEach(({ name, value, validations }) => {
+  // se inicializan los valores iniciales del formulario
   initialValues[name] = value;
 
   let schemaString = Yup.string();
   let schemaNumber = Yup.number();
 
-
-
+  // se recorren las validaciones del formulario
   validations.forEach(({ type, message, value }) => {
     if (type === 'required') {
       schemaString = schemaString.required(message);
@@ -51,11 +54,9 @@ formJson.forEach(({ name, value, validations }) => {
     }
     requiredFields[name] = schemaString;
   })
-
-
-
 })
 
+// se inicializa el esquema de validacion
 const validationSchema = Yup.object({ ...requiredFields });
 
 
@@ -75,9 +76,13 @@ export const DinamicForm = () => {
 
 
           <Formik
+          // se inicializa el formulario con los valores iniciales
             initialValues={initialValues}
+            // se inicializa el esquema de validacion
             validationSchema={validationSchema}
+            // se inicializa el submit del formulario
             onSubmit={(values, { setSubmitting }) => {
+              // se simula el submit del formulario
               setTimeout(() => {
                 alert(JSON.stringify(values, null, 2));
                 setSubmitting(false);
@@ -129,9 +134,9 @@ export const DinamicForm = () => {
                       )
                     })
                   }
-                  <button 
-                  type="submit"
-                  className="btn btn-primary"
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
                   >Enviar</button>
 
                 </Form>

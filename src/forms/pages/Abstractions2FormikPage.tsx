@@ -3,6 +3,11 @@ import { Formik, Form } from "formik";
 import { MyTextInput, MyCheckbox, MySelect } from '../components';
 import * as Yup from 'yup';
 import '../styles/styles.css';
+/**
+ * En este formulario hacemos uso de formik, yup
+ * ademas se implementa abstracciones mediante componentes personalizados para campos de texto MyTextInput, MyCheckbox, MySelect
+ * @returns el formulario
+ * */
 export const Abstractions2FormikPage
   = () => {
     return (
@@ -15,6 +20,7 @@ export const Abstractions2FormikPage
             <h1>Formik Abstractation Tutorial</h1>
 
             <Formik
+            // se inicializa el formulario con los valores iniciales
               initialValues={{
                 firstName: '',
                 lastName: '',
@@ -23,6 +29,7 @@ export const Abstractions2FormikPage
                 jobType: '',
 
               }}
+              // se inicializa el esquema de validacion
               validationSchema={Yup.object({
                 firstName: Yup.string()
                   .required('First name is required')
@@ -45,7 +52,9 @@ export const Abstractions2FormikPage
                   .notOneOf(['other'], 'Please specify other job type')
                 ,
               })}
+              // se inicializa el submit del formulario
               onSubmit={(values, { setSubmitting }) => {
+                // se simula el submit del formulario
                 setTimeout(() => {
                   alert(JSON.stringify(values, null, 2));
                   setSubmitting(false);

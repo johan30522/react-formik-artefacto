@@ -1,5 +1,8 @@
 import { useField, ErrorMessage } from 'formik';
 
+/**
+ * Interface que define las propiedades del componente
+ * */
 
 interface MyTextInputProps {
     label: string;
@@ -8,13 +11,14 @@ interface MyTextInputProps {
     placeholder: string;
     [x: string]: any;
 }
-
+/**
+ * Componente que renderiza un input
+ * @param props
+ * @returns
+ * */
 export const MyTextInput = ({ label, ...props }: MyTextInputProps) => {
 
     const [field] = useField(props)
-
-
-
 
     return (
         <>

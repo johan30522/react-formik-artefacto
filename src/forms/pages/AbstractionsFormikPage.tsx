@@ -6,6 +6,11 @@ import { MyTextInput } from '../components';
 import * as Yup from 'yup';
 
 import '../styles/styles.css'
+/**
+ * En este formulario hacemos uso de formik, yup , y formik components
+ * ademas se implementa abstracciones mediante componentes personalizados para campos de texto MyTextInput
+ * @returns el formulario
+ * */
 
 export const AbstractionsFormikPage = () => {
 
@@ -21,12 +26,14 @@ export const AbstractionsFormikPage = () => {
                     </h2>
 
                     <Formik
+                    // se inicializa el formulario con los valores iniciales
                         initialValues={{
                             name: '',
                             email: '',
                             password: '',
                             confirmPassword: ''
                         }}
+                        // se inicializa el esquema de validacion
                         validationSchema={Yup.object({
                             name: Yup.string()
                                 .required('First name is required')
@@ -41,7 +48,9 @@ export const AbstractionsFormikPage = () => {
                                 .required('Confirm password is required')
                                 .oneOf([Yup.ref('password'), ''], 'Passwords must match')
                         })}
+                        // se inicializa el submit del formulario
                         onSubmit={(values, { setSubmitting }) => {
+                            // se simula el submit del formulario
                             setTimeout(() => {
                                 alert(JSON.stringify(values, null, 2));
                                 setSubmitting(false);

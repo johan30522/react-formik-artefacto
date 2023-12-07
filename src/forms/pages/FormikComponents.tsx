@@ -1,10 +1,21 @@
 
+/**
+ * useFormik es un hook que nos permite manejar el estado de un formulario
+ * Formik es un componente que nos permite manejar el estado de un formulario
+ * Field es un componente que nos permite manejar los campos de un formulario
+ * Form es un componente que nos permite manejar el formulario
+ * ErrorMessage es un componente que nos permite manejar los errores de un formulario
+ */
 import { useFormik, Formik, Field, Form, ErrorMessage } from "formik";
 
 import * as Yup from 'yup';
 
 import '../styles/styles.css';
 
+/**
+ * Formulario con formik components, permite el uso de formik, yup y formik components
+ * @returns el formulario con formik components
+ * */
 export const FormikComponents
   = () => {
 
@@ -20,6 +31,7 @@ export const FormikComponents
               Uso de Formik, Yup y Formik Components
             </h2>
             <Formik
+            // se inicializa el formulario con los valores iniciales
               initialValues={{
                 firstName: '',
                 lastName: '',
@@ -28,6 +40,7 @@ export const FormikComponents
                 jobType: '',
 
               }}
+              // se inicializa el esquema de validacion
               validationSchema={Yup.object({
                 firstName: Yup.string()
                   .required('First name is required')
@@ -50,7 +63,9 @@ export const FormikComponents
                   .notOneOf(['other'], 'Please specify other job type')
                 ,
               })}
+              // se inicializa el submit del formulario
               onSubmit={(values, { setSubmitting }) => {
+                // se simula el submit del formulario
                 setTimeout(() => {
                   alert(JSON.stringify(values, null, 2));
                   setSubmitting(false);

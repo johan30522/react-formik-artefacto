@@ -3,8 +3,8 @@ import { useState, ChangeEvent } from 'react';
 
 /**
  * 
- * @param initialState  it is the initial state of the form
- * @returns it returns the form data, the function to handle the input change, the function to reset the form and the function to validate the email 
+ * @param initialState  este es el estado inicial del formulario
+ * @returns retorna el estado del formulario, la funcion para manejar el cambio de los inputs, la funcion para resetear el formulario y la funcion para validar el email
  */
 
 export const useForm = <T>(initialState:T) => {
@@ -15,8 +15,8 @@ export const useForm = <T>(initialState:T) => {
 
 
     /**
-     * It is the function to handle the input change
-     * @param event it is the event of the input
+     * permite manejar el cambio de los inputs
+     * @param event es el evento que se dispara cuando se cambia el valor de un input
      */
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         console.log(event.target);
@@ -27,7 +27,7 @@ export const useForm = <T>(initialState:T) => {
     }
 
     /**
-     * It is the function to reset the form
+     * permite resetear el formulario
      */
     const reset = () => {
         setFormData({...initialState})
@@ -35,9 +35,9 @@ export const useForm = <T>(initialState:T) => {
 
 
     /**
-     * It is the function to validate the email
-     * @param email it is the email to validate
-     * @returns it returns true if the email is valid, otherwise it returns false
+     * permite validar el email
+     * @param email es el email que se va a validar
+     * @returns retorna true si el email es valido y false si no lo es
      */
     const isValidEmail = ( email: string ) => {
         console.log('email',email);

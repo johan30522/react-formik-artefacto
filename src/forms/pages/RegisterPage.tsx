@@ -4,11 +4,17 @@ import { useForm } from '../hooks/useForm';
 import '../styles/styles.css'
 
 
+/**
+ *  Formulario con manjeo de estado useForm basico
+ * @returns el formulario con useForm
+ */
 export const RegisterPage = () => {
 
 
 
-
+    /**
+     * Permite manjear el estado del formulario
+    */
     const { formData, handleInputChange, reset, isValidEmail, name, email, confirmPassword, password } = useForm({
         name: '',
         email: '',
@@ -16,14 +22,14 @@ export const RegisterPage = () => {
         confirmPassword: ''
     });
 
-
+    /**
+     * Permite hacer submit los valores del formulario
+     * @param event
+     *  */
     const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         console.log(formData);
     }
-
-
-
 
     return (
         <div>

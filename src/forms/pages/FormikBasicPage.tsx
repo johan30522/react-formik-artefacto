@@ -4,6 +4,10 @@ import { useFormik, FormikErrors } from "formik";
 
 import '../styles/styles.css';
 
+
+/**
+ * 1. Crear una interfaz con los valores que se van a manejar en el formulario  
+ */
 interface FormValues {
   firstName: string;
   lastName: string;
@@ -13,9 +17,17 @@ interface FormValues {
 
 
 
-
+/**
+ * Formulario con formik básico
+ * @returns el formulario con formik básico
+ * */
 export const FormikBasicPage = () => {
 
+/**
+ * permite validar los campos del formulario
+ * @param values recibe los valores del formulario
+ * @returns retorna un objeto con los errores
+ */
   const validate = (values: FormValues) => {
 
 
@@ -42,10 +54,22 @@ export const FormikBasicPage = () => {
     return errors;
   };
 
+  /**
+   * permite hacer submit los valores del formulario
+   */
   const submitValues = () => {
     console.log(values);
   }
 
+/**
+ * permite manejar los valores del formulario con formik
+ * @returns handleChange: permite manejar los cambios de los valores del formulario
+ * @returns handleSubmit: permite manejar el submit del formulario
+ * @returns handleBlur: permite manejar el blur del formulario
+ * @returns values: permite manejar los valores del formulario
+ * @returns errors: permite manejar los errores del formulario
+ * @returns touched: permite manejar los touched del formulario
+ * */
   const { handleChange, handleSubmit, handleBlur, values, errors, touched } = useFormik({
     initialValues: {
       firstName: '',

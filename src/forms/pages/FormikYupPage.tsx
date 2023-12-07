@@ -6,24 +6,36 @@ import { useFormik } from "formik";
 import * as Yup from 'yup';
 
 import '../styles/styles.css';
-
+/**
+ * Formulario con formik yup
+ * @returns el formulario con formik yup
+ */
 export const FormikYupPage = () => {
-
-
-
+/**
+ * Permite hacer submit los valores del formulario
+*/
   const submitValues = () => {
     console.log(values);
   }
-
+/**
+ * Manejo del formulario mediante formik
+ * handleSubmit: permite hacer submit del formulario
+ * getFieldProps: permite obtener los valores de los campos del formulario
+ * values: permite manejar los valores del formulario
+ * errors: permite manejar los errores del formulario
+ * touched: permite manejar los touched del formulario
+ */
   const {
     handleSubmit, getFieldProps,
     values, errors, touched
   } = useFormik({
+    // se inicializa el formulario con los valores iniciales
     initialValues: {
       firstName: '',
       lastName: '',
       email: '',
     },
+    // se inicializa el esquema de validacion
     validationSchema: Yup.object({
       firstName: Yup.string()
         .required('First name is required')
