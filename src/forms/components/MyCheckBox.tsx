@@ -8,14 +8,14 @@ interface MySelectProps {
 }
 /**
  * Componente que renderiza un checkbox 
- * @param param0 
+ * @param props 
  * @returns 
  */
 
 export const MyCheckbox = ({ label, ...props }: MySelectProps) => {
 
     //Utiliza el hook useField de formik para manejar el estado del checkbox
-    const [field, meta] = useField({ ...props, type: 'checkbox' })
+    const [field] = useField({ ...props, type: 'checkbox' })
 
     return (
         <>
